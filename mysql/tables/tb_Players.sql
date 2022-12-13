@@ -1,0 +1,14 @@
+CREATE TABLE tb_Players (
+    id BIGINT NOT NULL,
+    username VARCHAR(64) NOT NULL,
+    statusId SMALLINT NOT NULL DEFAULT 100,
+    tmsCreated TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    tmsModified TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    tmsDeleted TIMESTAMP,
+    isDeleted BOOLEAN NOT NULL DEFAULT 0,
+    CONSTRAINT PK_tb_Players PRIMARY KEY (id),
+    CONSTRAINT FK_statusId FOREIGN KEY (statusId) REFERENCES tb_Status(id)
+);
+
+DESCRIBE tb_Players;
+
